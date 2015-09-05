@@ -2,13 +2,14 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="FNC-hD-pq5">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Record-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Pitch_Perfect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="RecordSoundsViewController" customModule="Pitch_Perfect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -30,7 +31,6 @@
                                 </state>
                                 <connections>
                                     <action selector="stopRecording:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="MvX-91-Bxo"/>
-                                    <segue destination="JuE-N1-cdv" kind="show" id="spG-lN-USO"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o4b-cE-91X">
@@ -88,6 +88,7 @@
                         <outlet property="progressTextLabel" destination="Eie-Ed-fHy" id="Ak8-H8-524"/>
                         <outlet property="recordButton" destination="o4b-cE-91X" id="KUc-6b-t9p"/>
                         <outlet property="stopButton" destination="CRs-SH-Uhh" id="lm6-ti-kWg"/>
+                        <segue destination="JuE-N1-cdv" kind="show" identifier="stopRecording" id="avE-Rq-z4C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -103,6 +104,7 @@
                         <viewControllerLayoutGuide type="bottom" id="qJ0-DX-FhD"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="P1w-xa-BjS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ms1-gU-gcQ">
@@ -182,13 +184,13 @@
                                 <exclude reference="T1n-Cd-o4a"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="6qT-Qj-rd4"/>
-                                <exclude reference="Gcy-O6-gPL"/>
+                                <exclude reference="qca-TH-TbS"/>
                                 <exclude reference="bAl-Ls-EuS"/>
                                 <exclude reference="s8T-Wc-8yN"/>
+                                <exclude reference="6qT-Qj-rd4"/>
+                                <exclude reference="Gcy-O6-gPL"/>
                                 <exclude reference="Tai-v6-7dC"/>
                                 <exclude reference="gz2-ZH-pLL"/>
-                                <exclude reference="qca-TH-TbS"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -198,13 +200,13 @@
                                 <include reference="T1n-Cd-o4a"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="6qT-Qj-rd4"/>
-                                <include reference="Gcy-O6-gPL"/>
+                                <include reference="qca-TH-TbS"/>
                                 <include reference="bAl-Ls-EuS"/>
                                 <include reference="s8T-Wc-8yN"/>
+                                <include reference="6qT-Qj-rd4"/>
+                                <include reference="Gcy-O6-gPL"/>
                                 <include reference="Tai-v6-7dC"/>
                                 <include reference="gz2-ZH-pLL"/>
-                                <include reference="qca-TH-TbS"/>
                             </mask>
                         </variation>
                     </view>
