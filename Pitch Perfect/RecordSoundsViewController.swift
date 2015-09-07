@@ -23,8 +23,9 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
   }
   
   override func viewWillAppear(animated: Bool) {
-    stopButton.hidden = true
+    progressTextLabel.text = "Tap to record"
     recordButton.enabled = true
+    stopButton.hidden = true
   }
 
   override func didReceiveMemoryWarning() {
@@ -34,7 +35,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
   @IBAction func recordAudio(sender: UIButton) {
     stopButton.hidden = false
     recordButton.enabled = false
-    progressTextLabel.hidden = false
+    progressTextLabel.text = "Recording in progress..."
     
     let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
   
@@ -58,14 +59,12 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
       recordedAudio = RecordedAudio(url: recorder.url, title: recorder.url.lastPathComponent!)
       self.performSegueWithIdentifier("stopRecording", sender: recordedAudio)
     } else {
-      println("Recording failed.")
       recordButton.enabled = true
       stopButton.hidden = true
     }
   }
 
   @IBAction func stopRecording(sender: UIButton) {
-    progressTextLabel.hidden = true
     audioRecorder.stop()
     var session = AVAudioSession.sharedInstance()
     session.setActive(false, error: nil)

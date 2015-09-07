@@ -70,12 +70,12 @@ class PlaySoundsViewController: UIViewController {
   }
   
   @IBAction func stopSound(sender: UIButton) {
-    player.stop()
-    player.currentTime = 0.0
+    resetAll()
   }
   
   func resetAll() {
     player.stop()
+    player.currentTime = 0.0
     processingEngine.stop()
     processingEngine.reset()
   }
