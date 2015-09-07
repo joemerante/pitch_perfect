@@ -20,7 +20,6 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -30,7 +29,6 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
   }
 
   @IBAction func recordAudio(sender: UIButton) {
@@ -40,11 +38,6 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     
     let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
   
-// TODO - figure out how to display multiple recordings, present in a table view to the user with file size, allow user to delete
-//    let currentDateTime = NSDate()
-//    let formatter = NSDateFormatter()
-//    formatter.dateFormat = "ddMMyyyy-HHmmss"
-//    let recordingName = formatter.stringFromDate(currentDateTime)+".wav"
     let recordingName = "my_audio.wav"
     let pathArray = [dirPath, recordingName]
     let filePath = NSURL.fileURLWithPathComponents(pathArray)
@@ -60,26 +53,16 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 
   }
   
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if (segue.identifier == "stopRecording") {
-      let playSoundsVC:PlaySoundsViewController = segue.destinationViewController as! PlaySoundsViewController
-      let data = sender as! RecordedAudio
-      playSoundsVC.receivedAudio = data 
-    }
-  }
-  
   func audioRecorderDidFinishRecording(recorder: AVAudioRecorder!, successfully flag: Bool) {
     if (flag) {
-      // save the audio
       recordedAudio = RecordedAudio()
       recordedAudio.filePathURL = recorder.url
       recordedAudio.title = recorder.url.lastPathComponent
-      // segue
       self.performSegueWithIdentifier("stopRecording", sender: recordedAudio)
     } else {
       println("Recording failed.")
       recordButton.enabled = true
-      stopButton.hidden = true 
+      stopButton.hidden = true
     }
   }
 
@@ -88,6 +71,14 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     audioRecorder.stop()
     var session = AVAudioSession.sharedInstance()
     session.setActive(false, error: nil)
+  }
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if (segue.identifier == "stopRecording") {
+      let playSoundsVC:PlaySoundsViewController = segue.destinationViewController as! PlaySoundsViewController
+      let data = sender as! RecordedAudio
+      playSoundsVC.receivedAudio = data
+    }
   }
 }
 
