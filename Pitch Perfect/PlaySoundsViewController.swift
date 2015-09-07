@@ -47,7 +47,7 @@ class PlaySoundsViewController: UIViewController {
     playAudioWithVariablePitch(1000)
   }
   
-  function playAudioWithVariablePitch(pitch: Float) {
+  func playAudioWithVariablePitch(pitch: Float) {
     resetAll()
     
     var pitchPlayerNode = AVAudioPlayerNode()
