@@ -166,31 +166,47 @@
                                     <action selector="playSoundSlow:" destination="JuE-N1-cdv" eventType="touchUpInside" id="uei-Bf-Fja"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ndl-to-FN0">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="chipmunk">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playChipmunkAudio:" destination="JuE-N1-cdv" eventType="touchUpInside" id="X4j-to-ggi"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="T1n-Cd-o4a" firstAttribute="top" secondItem="s5C-rp-G2s" secondAttribute="bottom" constant="36" id="6qT-Qj-rd4"/>
                             <constraint firstItem="T1n-Cd-o4a" firstAttribute="leading" secondItem="P1w-xa-BjS" secondAttribute="leadingMargin" constant="40" id="Gcy-O6-gPL"/>
                             <constraint firstAttribute="centerX" secondItem="VaE-wF-tfQ" secondAttribute="centerX" id="Tai-v6-7dC"/>
+                            <constraint firstItem="VaE-wF-tfQ" firstAttribute="top" secondItem="ndl-to-FN0" secondAttribute="bottom" constant="56" id="YKC-Dy-Z19"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ms1-gU-gcQ" secondAttribute="trailing" constant="40" id="bAl-Ls-EuS"/>
                             <constraint firstAttribute="centerY" secondItem="VaE-wF-tfQ" secondAttribute="centerY" constant="-230" id="gz2-ZH-pLL"/>
+                            <constraint firstItem="ndl-to-FN0" firstAttribute="top" secondItem="T1n-Cd-o4a" secondAttribute="bottom" constant="124" id="oCX-jB-ieJ"/>
                             <constraint firstItem="qJ0-DX-FhD" firstAttribute="top" secondItem="VaE-wF-tfQ" secondAttribute="bottom" constant="20" id="qca-TH-TbS"/>
                             <constraint firstItem="Ms1-gU-gcQ" firstAttribute="top" secondItem="s5C-rp-G2s" secondAttribute="bottom" constant="36" id="s8T-Wc-8yN"/>
+                            <constraint firstItem="ndl-to-FN0" firstAttribute="leading" secondItem="P1w-xa-BjS" secondAttribute="leadingMargin" constant="40" id="xy9-Fd-LCW"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="Ms1-gU-gcQ"/>
                                 <exclude reference="VaE-wF-tfQ"/>
                                 <exclude reference="T1n-Cd-o4a"/>
+                                <exclude reference="ndl-to-FN0"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="qca-TH-TbS"/>
-                                <exclude reference="bAl-Ls-EuS"/>
-                                <exclude reference="s8T-Wc-8yN"/>
                                 <exclude reference="6qT-Qj-rd4"/>
                                 <exclude reference="Gcy-O6-gPL"/>
+                                <exclude reference="bAl-Ls-EuS"/>
+                                <exclude reference="s8T-Wc-8yN"/>
+                                <exclude reference="oCX-jB-ieJ"/>
+                                <exclude reference="xy9-Fd-LCW"/>
                                 <exclude reference="Tai-v6-7dC"/>
+                                <exclude reference="YKC-Dy-Z19"/>
                                 <exclude reference="gz2-ZH-pLL"/>
+                                <exclude reference="qca-TH-TbS"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -198,15 +214,19 @@
                                 <include reference="Ms1-gU-gcQ"/>
                                 <include reference="VaE-wF-tfQ"/>
                                 <include reference="T1n-Cd-o4a"/>
+                                <include reference="ndl-to-FN0"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="qca-TH-TbS"/>
-                                <include reference="bAl-Ls-EuS"/>
-                                <include reference="s8T-Wc-8yN"/>
                                 <include reference="6qT-Qj-rd4"/>
                                 <include reference="Gcy-O6-gPL"/>
+                                <include reference="bAl-Ls-EuS"/>
+                                <include reference="s8T-Wc-8yN"/>
+                                <include reference="oCX-jB-ieJ"/>
+                                <include reference="xy9-Fd-LCW"/>
                                 <include reference="Tai-v6-7dC"/>
+                                <include reference="YKC-Dy-Z19"/>
                                 <include reference="gz2-ZH-pLL"/>
+                                <include reference="qca-TH-TbS"/>
                             </mask>
                         </variation>
                     </view>
@@ -235,6 +255,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chipmunk" width="100" height="100"/>
         <image name="microphone" width="100" height="100"/>
         <image name="rabbit" width="100" height="100"/>
         <image name="snail" width="100" height="100"/>

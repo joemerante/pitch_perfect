@@ -12,19 +12,16 @@ import AVFoundation
 class PlaySoundsViewController: UIViewController {
   
   var player:AVAudioPlayer!
+  var processingEngine:AVAudioEngine!
   var receivedAudio:RecordedAudio!
+  var audioFile: AVAudioFile!
 
   override func viewDidLoad() {
     super.viewDidLoad()
-//    if let filePath = NSBundle.mainBundle().pathForResource("movie_quote", ofType: "mp3") {
-//      let fileURL = NSURL.fileURLWithPath(filePath)
-//      
-//    } else {
-//      println("the file path is empty")
-//    }
-    
     player = AVAudioPlayer(contentsOfURL: receivedAudio.filePathURL, error: nil)
     player.enableRate = true
+    processingEngine = AVAudioEngine()
+    audioFile = AVAudioFile(forReading: receivedAudio.filePathURL, error: nil)
   }
 
   override func didReceiveMemoryWarning() {
@@ -46,19 +43,38 @@ class PlaySoundsViewController: UIViewController {
     playAudioAtSpeed(1.7)
   }
   
+  @IBAction func playChipmunkAudio(sender: UIButton) {
+    playAudioWithVariablePitch(1000)
+  }
+  
+  function playAudioWithVariablePitch(pitch: Float) {
+    resetAll()
+    
+    var pitchPlayerNode = AVAudioPlayerNode()
+    processingEngine.attachNode(pitchPlayerNode)
+    
+    var changePitchEffect = AVAudioUnitTimePitch()
+    changePitchEffect.pitch = pitch
+    processingEngine.attachNode(changePitchEffect)
+    
+    processingEngine.connect(pitchPlayerNode, to: changePitchEffect, format: audioFile.processingFormat)
+    processingEngine.connect(changePitchEffect, to: processingEngine.outputNode, format: audioFile.processingFormat)
+    
+    pitchPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
+    processingEngine.startAndReturnError(nil)
+    
+    pitchPlayerNode.play()
+  }
+  
   @IBAction func stopSound(sender: UIButton) {
     player.stop()
     player.currentTime = 0.0
   }
   
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+  func resetAll() {
+    player.stop()
+    processingEngine.stop()
+    processingEngine.reset()
+  }
 
 }
