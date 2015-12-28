@@ -18,10 +18,10 @@ class PlaySoundsViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    player = AVAudioPlayer(contentsOfURL: receivedAudio.filePathURL, error: nil)
+    try! player = AVAudioPlayer(contentsOfURL: receivedAudio.filePathURL, fileTypeHint: nil)
     player.enableRate = true
     processingEngine = AVAudioEngine()
-    audioFile = AVAudioFile(forReading: receivedAudio.filePathURL, error: nil)
+    try! audioFile = AVAudioFile(forReading: receivedAudio.filePathURL)
   }
 
   override func didReceiveMemoryWarning() {
@@ -53,10 +53,10 @@ class PlaySoundsViewController: UIViewController {
   func playAudioWithVariablePitch(pitch: Float) {
     resetAll()
     
-    var pitchPlayerNode = AVAudioPlayerNode()
+    let pitchPlayerNode = AVAudioPlayerNode()
     processingEngine.attachNode(pitchPlayerNode)
     
-    var changePitchEffect = AVAudioUnitTimePitch()
+    let changePitchEffect = AVAudioUnitTimePitch()
     changePitchEffect.pitch = pitch
     processingEngine.attachNode(changePitchEffect)
     
@@ -64,7 +64,7 @@ class PlaySoundsViewController: UIViewController {
     processingEngine.connect(changePitchEffect, to: processingEngine.outputNode, format: audioFile.processingFormat)
     
     pitchPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
-    processingEngine.startAndReturnError(nil)
+    try! processingEngine.start()
     
     pitchPlayerNode.play()
   }

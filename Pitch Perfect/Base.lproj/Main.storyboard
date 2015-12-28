@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="FNC-hD-pq5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="FNC-hD-pq5">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -14,7 +15,7 @@
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                    <view key="view" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -98,19 +99,19 @@
         <!--Play Sounds View Controller-->
         <scene sceneID="pyX-3j-eQe">
             <objects>
-                <viewController id="JuE-N1-cdv" customClass="PlaySoundsViewController" customModule="Pitch_Perfect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="JuE-N1-cdv" customClass="PlaySoundsViewController" customModule="Pitch_Perfect" customModuleProvider="target" propertyAccessControl="none" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="s5C-rp-G2s"/>
                         <viewControllerLayoutGuide type="bottom" id="qJ0-DX-FhD"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="P1w-xa-BjS">
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="P1w-xa-BjS" propertyAccessControl="none">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ms1-gU-gcQ">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="OLy-AB-Ait"/>
+                                    <constraint firstAttribute="width" constant="100" id="OLy-AB-Ait" propertyAccessControl="none"/>
                                     <constraint firstAttribute="height" constant="100" id="SXn-mO-Gtg"/>
                                 </constraints>
                                 <state key="normal" image="rabbit">
@@ -185,7 +186,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="T1n-Cd-o4a" firstAttribute="top" secondItem="s5C-rp-G2s" secondAttribute="bottom" constant="36" id="6qT-Qj-rd4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="KV0-uC-HpU" secondAttribute="trailing" constant="40" id="AJa-nd-tMO"/>
@@ -210,19 +211,19 @@
                                 <exclude reference="KV0-uC-HpU"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="6qT-Qj-rd4"/>
-                                <exclude reference="Gcy-O6-gPL"/>
-                                <exclude reference="bAl-Ls-EuS"/>
-                                <exclude reference="s8T-Wc-8yN"/>
-                                <exclude reference="oCX-jB-ieJ"/>
-                                <exclude reference="xy9-Fd-LCW"/>
+                                <exclude reference="qca-TH-TbS"/>
                                 <exclude reference="AJa-nd-tMO"/>
                                 <exclude reference="cXi-CJ-cTT"/>
+                                <exclude reference="bAl-Ls-EuS"/>
+                                <exclude reference="s8T-Wc-8yN"/>
+                                <exclude reference="6qT-Qj-rd4"/>
+                                <exclude reference="Gcy-O6-gPL"/>
                                 <exclude reference="Tai-v6-7dC"/>
                                 <exclude reference="YKC-Dy-Z19"/>
                                 <exclude reference="gz2-ZH-pLL"/>
                                 <exclude reference="in5-JZ-Udm"/>
-                                <exclude reference="qca-TH-TbS"/>
+                                <exclude reference="oCX-jB-ieJ"/>
+                                <exclude reference="xy9-Fd-LCW"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -234,19 +235,19 @@
                                 <include reference="KV0-uC-HpU"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="6qT-Qj-rd4"/>
-                                <include reference="Gcy-O6-gPL"/>
-                                <include reference="bAl-Ls-EuS"/>
-                                <include reference="s8T-Wc-8yN"/>
-                                <include reference="oCX-jB-ieJ"/>
-                                <include reference="xy9-Fd-LCW"/>
+                                <include reference="qca-TH-TbS"/>
                                 <include reference="AJa-nd-tMO"/>
                                 <include reference="cXi-CJ-cTT"/>
+                                <include reference="bAl-Ls-EuS"/>
+                                <include reference="s8T-Wc-8yN"/>
+                                <include reference="6qT-Qj-rd4"/>
+                                <include reference="Gcy-O6-gPL"/>
                                 <include reference="Tai-v6-7dC"/>
                                 <include reference="YKC-Dy-Z19"/>
                                 <include reference="gz2-ZH-pLL"/>
                                 <include reference="in5-JZ-Udm"/>
-                                <include reference="qca-TH-TbS"/>
+                                <include reference="oCX-jB-ieJ"/>
+                                <include reference="xy9-Fd-LCW"/>
                             </mask>
                         </variation>
                     </view>

@@ -37,16 +37,16 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     recordButton.enabled = false
     progressTextLabel.text = "Recording in progress..."
     
-    let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
+    let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] 
   
     let recordingName = "my_audio.wav"
     let pathArray = [dirPath, recordingName]
     let filePath = NSURL.fileURLWithPathComponents(pathArray)
     
-    var session = AVAudioSession.sharedInstance()
-    session.setCategory(AVAudioSessionCategoryPlayAndRecord, error: nil)
-    
-    audioRecorder = AVAudioRecorder(URL: filePath, settings: nil, error: nil)
+    let session = AVAudioSession.sharedInstance()
+    try! session.setCategory(AVAudioSessionCategoryPlayAndRecord)
+
+    try! audioRecorder = AVAudioRecorder.init(URL: filePath!, settings: ["err": "shutup"])
     audioRecorder.delegate = self
     audioRecorder.meteringEnabled = true
     audioRecorder.prepareToRecord()
@@ -54,7 +54,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 
   }
   
-  func audioRecorderDidFinishRecording(recorder: AVAudioRecorder!, successfully flag: Bool) {
+  func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
     if (flag) {
       recordedAudio = RecordedAudio(url: recorder.url, title: recorder.url.lastPathComponent!)
       self.performSegueWithIdentifier("stopRecording", sender: recordedAudio)
@@ -66,8 +66,8 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 
   @IBAction func stopRecording(sender: UIButton) {
     audioRecorder.stop()
-    var session = AVAudioSession.sharedInstance()
-    session.setActive(false, error: nil)
+    let session = AVAudioSession.sharedInstance()
+    try! session.setActive(false)
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
